@@ -49,28 +49,6 @@ public class Exercice2TP0 {
         return visites;
     }
 
-    public static List<String> dfsIteratif(Map<String, List<String>> graphe, String noeudDepart) {
-
-        List<String> visites = new ArrayList<>();
-        Set<String> visitesEnCours = new HashSet<>();
-        Stack<String> pile = new Stack<>();
-
-        pile.push(noeudDepart);
-        while (!pile.isEmpty()) {
-            String noeudActuel = pile.pop();
-            if (!visitesEnCours.contains(noeudActuel)) {
-                visites.add(noeudActuel);
-                visitesEnCours.add(noeudActuel);
-                List<String> voisins = graphe.getOrDefault(noeudActuel, new ArrayList<>());
-                for (String voisin : voisins) {
-                    if (!visitesEnCours.contains(voisin)) {
-                        pile.push(voisin);
-                    }
-                }
-            }
-        }
-        return visites;
-    }
 
 
 
@@ -97,10 +75,6 @@ public class Exercice2TP0 {
 
         // Test DFS récursif
         System.out.println("DFS récursif à partir du nœud 'A': " + dfs(carteVille, "A"));
-        System.out.println("");
-
-        // Test DFS itératif
-        System.out.println("DFS itératif à partir du nœud 'A': " + dfsIteratif(carteVille, "A"));
         System.out.println("");
 
     }
